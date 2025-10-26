@@ -1,0 +1,42 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docker: up postgres",       // nome da tarefa
+      "type": "process",                    // executa um processo externo
+      "command": "docker",                  // comando base
+      "args": [                             // argumentos do docker run
+        "run",
+        "--name", "on_market_db",           // nome do container
+        "-p", "5437:5432",                  // mapeamento de porta host:container
+        "-e", "POSTGRES_DB=on_market_dw",   // cria DB padrão
+        "-e", "POSTGRES_USER=onmkt",        // usuário
+        "-e", "POSTGRES_PASSWORD=onmkt1010",// senha de demo
+        "-d",                               // modo detach
+        "postgres:16.1"                     // imagem
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "docker: stop postgres",
+      "type": "process",
+      "command": "docker",
+      "args": ["stop", "on_market_db"],     // para o container
+      "problemMatcher": []
+    },
+    {
+      "label": "docker: remove postgres",
+      "type": "process",
+      "command": "docker",
+      "args": ["rm", "-f", "on_market_db"], // remove o container
+      "problemMatcher": []
+    },
+    {
+      "label": "psql: open shell (docker exec)",
+      "type": "process",
+      "command": "docker",
+      "args": ["exec", "-it", "on_market_db", "psql", "-U", "onmkt", "-d", "on_market_dw"], // entra no psql
+      "problemMatcher": []
+    }
+  ]
+}

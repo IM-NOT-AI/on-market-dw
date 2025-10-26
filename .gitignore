@@ -1,0 +1,37 @@
+# SO
+.DS_Store                 # arquivo de metadados do macOS; nunca deve ir para o repo
+Thumbs.db                 # cache de miniaturas do Windows; também lixo
+
+# VS Code: manter apenas os quatro JSON versionados
+.vscode/*                 # ignora tudo da pasta .vscode por padrão
+!.vscode/settings.json    # exceção: permite versionar o settings.json (útil e neutro)
+!.vscode/extensions.json  # exceção: recomenda extensões para quem clonar
+!.vscode/tasks.json       # exceção: versiona tarefas (opcional; contém comandos)
+!.vscode/launch.json      # exceção: versiona lançadores (opcional)
+
+# Ambientes e segredos
+.env                      # evita vazar variáveis locais
+*.env                     # evita qualquer arquivo .env nomeado
+env/local/*               # subpasta local de env fora do versionamento
+env/*.local               # variações locais de env
+
+# Dados grandes (mantém readme)
+data/raw/**               # evita subir insumos brutos pesados
+!data/raw/readme.md       # mas mantém o readme de instrução
+data/processed/**         # evita artefatos processados
+!data/processed/readme.md # mantém o readme
+data/samples/**           # evita amostras volumosas
+!data/samples/readme.md   # mantém o readme
+
+# Logs e dumps
+*.log                     # logs em geral
+*.tmp                     # temporários
+*.bak                     # backups manuais
+*.backup                  # backups
+*.dump                    # dumps de banco
+*.sql.gz                  # dumps SQL comprimidos
+
+# Artefatos diversos
+node_modules/             # dependências Node (se usar Node; se não usar, pode remover)
+dist/                     # diretório de build
+coverage/                 # cobertura de testes

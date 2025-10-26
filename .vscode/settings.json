@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,              // formata ao salvar
+  "editor.rulers": [100],                   // guia visual de 100 colunas
+  "files.eol": "\n",                        // força LF no workspace
+  "files.trimTrailingWhitespace": true,     // remove espaços ao fim da linha
+  "files.insertFinalNewline": true,         // garante newline no fim do arquivo
+  "terminal.integrated.defaultProfile.windows": "Git Bash", // usa Git Bash no Windows
+  "files.exclude": {                        // apenas visibilidade no explorer
+    "data/raw": false,
+    "data/processed": false
+  },
+  "[sql]": {
+    "editor.tabSize": 2,                    // identação de SQL
+    "editor.insertSpaces": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on"                 // quebra de linha ao visualizar .md
+  }
+}

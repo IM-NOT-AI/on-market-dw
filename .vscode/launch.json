@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "open: project readme preview", // nome da configuração
+      "type": "extensionHost",                 // inicia o host de extensões do VS Code
+      "request": "launch",
+      "args": ["--disable-extensions"],        // abre sem extensões
+      "preLaunchTask": "docker: up postgres"   // sobe o Postgres antes
+    }
+  ],
+  "compounds": []
+}
